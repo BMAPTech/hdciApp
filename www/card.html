@@ -103,36 +103,16 @@
     
 	<div class="navbarpages navbarpagesbg">
                 <div class="navbar_left">
-                    <div class="logo_text"><a href="index.html"><img src="images/icons/white/back.png" alt="" title="" width="40px" height="40px"/></a></div>
+                    <div class="logo_text"><a href="index2.html"><img src="images/icons/white/back.png" alt="" title="" width="40px" height="40px"/></a></div>
                 </div>				
 	</div>
-     
-     <div class="bottombarpages">
-       <div class="gallery_switch">        
-        <a href="#" id="view11" class="switcher active"><img src="images/switch_11_active.png" alt="List"></a>
-      </div>
-     </div> 
 
      <div id="pages_maincontent">
-       <a href="member.html" class="backto"  onclick="loadMember()"><img src="images/icons/black/back.png" alt="" title="" /></a>
               <h2 class="page_title">CARD</h2>
 			  
-              <div class="page_single layout_fullwidth">	  
+              <div class="page_single layout_fullwidth">
 
-              <div class="photo-categories">
-                    <a href="#tab1p" class="tab-link active category-link">Member Card</a>
-              </div>
-
-              <div class="tabs-animated-wrap photos_tabs">
-                    <div class="tabs">
-                          <div id="tab1p" class="tab active">
-                             <ul id="photoslist" class="photo_gallery_11">
-                                <li><img src="images/photos/photo1.jpg" alt="My Card" id="member_card_image"/></li>
-                               <div class="clearleft"></div>
-                              </ul>   
-                          </div>              
-                    </div>
-              </div> 
+              <img src="images/profile_background.jpg" width="100%" height="50%" alt="Your Card" id="member_card_image">
 			  
 			  
    </div>       
@@ -194,7 +174,7 @@
                 success: function(result) {
                     console.log(result);                    
                   // $('#member_card').attr("href","http://www.hdci.asia/media_library/profilepicture/"+id+"/"+result);
-                   $('#member_card_image').attr("src","http://www.hdci.asia/media_library/profilepicture/"+id+"/"+result);
+                   $('#member_card_image').attr("src","http://www.hdci.or.id/admin/media_library/profilepicture/"+id+"/"+result);
 
                 }
             });
