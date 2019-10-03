@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+<link rel="apple-touch-startup-image" href="images/apple-touch-startup-image-640x920.png">
+<title>HDCI</title>
+<link rel="stylesheet" href="css/swiper.css">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,900" rel="stylesheet">
+<link href="https://unpkg.com/@ionic/core@latest/css/ionic.bundle.css" rel="stylesheet">
+<script src="https://unpkg.com/@ionic/core@latest/dist/ionic.js"></script>
+</head>
+<body id="mobile_wrap">
+<div class="pages">
+  <div data-page="blog" class="page no-toolbar no-navbar">
+    <div class="page-content">
+    
+	<div class="navbarpages navbarpagesbg">
+                <div class="navbar_left">
+                    <div class="logo_text"><a href="index.html"><img src="images/icons/white/back.png" alt="" title="" width="40px" height="40px"/></a></div>
+                </div>			
+	</div>
+	
+     <div id="pages_maincontent">
+      
+      <h2 class="page_title">MEMBER</h2>
+      
+     <div class="page_single layout_fullwidth_padding">  
+      <input type="text" id="myInput" onkeyup="searchMember()" placeholder="Search for names.." style="width:100%;position:relative;display:flex;border: 3px solid #00B4CC;border-radius: 5px 0 0 5px;">
+            <div class="list-block">
+              <ul class="posts" id="member">                
+              </ul>            
+            </div>
+			
+       </div>		
+      
+      </div>
+      
+      
+    </div>
+  </div>
+</div>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery.validate.min.js" ></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/jquery.custom.js"></script>
+<script>
+    $(document).ready(function() {
+      loadMember();                
+      function loadMember() {
+            $.ajax({
+                method: "POST",
+                url: "http://www.hdci.or.id/admin/App/member.php",
+                success: function(data) {
+                    $('#member').html(data);
+                }
+            });
+      }
+    });
+
+    function searchMember() {
+    // Declare variables
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById('myInput');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("member");
+        li = ul.getElementsByTagName('li');
+
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < li.length; i++) {
+          a = li[i].getElementsByTagName("a")[0];
+          txtValue = a.textContent || a.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+          } else {
+            li[i].style.display = "none";
+          }
+        }
+      }
+
+    function LoadMemberDetail(id) {
+      localStorage.setItem('idMember', id);
+    }
+
+</script>
+
+  </body>
+</html>
