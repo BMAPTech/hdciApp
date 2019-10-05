@@ -87,7 +87,7 @@
         <a href="login.html"><img src="images/icons/black/lock.png" alt="" title="" /><span>LOGIN</span></a>
 				<a href="event.html"><img src="images/icons/black/blog.png" alt="" title="" /><span>EVENT</span></a>
 				<a href="trade.html"><img src="images/icons/black/cart.png" alt="" title="" /><span>TRADE</span></a>
-				<a href="contact.html"><img src="images/icons/black/phone.png" alt="" title="" /><span>EMERGENCY</span></a>
+				<a href="#" id="emergency"><img src="images/icons/black/phone.png" alt="" title="" /><span>EMERGENCY</span></a>
 			  </div> 
         <!--
 			  <div class="swiper-slide toolbar-icon">
@@ -117,5 +117,13 @@
 <script src="js/jquery.validate.min.js" ></script>
 <script src="js/swiper.min.js"></script>
 <script src="js/jquery.custom.js"></script>
+<script>
+	 $(document).ready(function() {
+
+      setTimeout(function(){  
+       $("#emergency").attr("href","tel:"+localStorage.getItem("nodarurat"));
+       }, 1000); 
+    });
+</script>
   </body>
 </html>
